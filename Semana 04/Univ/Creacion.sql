@@ -3,17 +3,17 @@ Go
 Use Univ
 Go
 Create Table Niveles(
-    ID smallint not null primary key,
+    ID smallint not null primary key identity(1, 1),
     Nombre varchar(50) not null
 )
 Go
 Create Table Idiomas(
-    ID smallint not null primary key,
+    ID smallint not null primary key identity (1, 1),
     Nombre varchar(50) not null
 )
 Go
 Create Table Cursos(
-    ID int not null primary key,
+    ID int not null primary key identity (1, 1),
     Nombre varchar(100) not null,
     CostoCurso money not null,
     CostoCertificacion money not null,
@@ -22,7 +22,7 @@ Create Table Cursos(
 )
 Go
 Create Table FormatosIdioma(
-    ID smallint not null primary key,
+    ID smallint not null primary key identity (1, 1),
     Nombre varchar(50) not null
 )
 Go
@@ -34,7 +34,7 @@ Create Table Idiomas_x_Curso(
 )
 Go
 Create Table Clases(
-    ID bigint not null primary key,
+    ID bigint not null primary key identity(1,1),
     IDCurso int not null foreign key references Cursos(ID),
     Nombre varchar(100) not null,
     Numero smallint not null,
@@ -42,19 +42,19 @@ Create Table Clases(
 )
 Go
 Create Table TiposContenido(
-    ID smallint not null primary key,
+    ID smallint not null primary key identity(1,1),
     Nombre varchar(50) not null
 )
 Go
 Create Table Contenidos(
-    ID bigint not null primary key,
+    ID bigint not null primary key identity(1, 1),
     IDClase bigint not null foreign key references Clases(ID),
     IDTipoContenido smallint not null foreign key references TiposContenido(ID),
     Tamaño int not null, -- MB
 )
 Go
 Create Table Categorias(
-    ID smallint not null primary key,
+    ID smallint not null primary key identity(1, 1),
     Nombre varchar(100) not null
 )
 Go
