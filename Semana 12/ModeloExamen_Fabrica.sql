@@ -10,7 +10,7 @@ Go
 Create Table Piezas(
     IDPieza bigint not null primary key identity,
     Nombre varchar(500) not null,
-    IDMaterial smallint foreign key references Materiales(IDMaterial),
+    IDMaterial smallint not null foreign key references Materiales(IDMaterial),
     MedidaMinima decimal (5,2 ) not null,
     MedidaMaxima decimal (5,2 ) not null,
     CostoUnitarioProduccion money not null
@@ -26,10 +26,10 @@ Create Table Operarios(
 Go
 Create Table Produccion(
     IDProduccion bigint not null primary key identity,
-    IDOperario bigint foreign key references Operarios(IDOperario),
-    IDPieza bigint foreign key references Piezas(IDPieza),
+    IDOperario bigint not null foreign key references Operarios(IDOperario),
+    IDPieza bigint not null foreign key references Piezas(IDPieza),
     Fecha date not null,
-    Medida decimal(5, 3) not null,
+    Medida decimal(5, 2) not null,
     Cantidad int not null,
     CostoTotal money not null    
 )
@@ -95,5 +95,4 @@ INSERT INTO Produccion (IDOperario, IDPieza, Fecha, Medida, Cantidad, CostoTotal
 (3, 7, '2023-03-10', 1.50, 200, 100.00), 
 (4, 12, '2023-04-05', 3.00, 50, 75.00),  
 (5, 10, '2023-05-25', 95.00, 30, 360.00);
-
 
