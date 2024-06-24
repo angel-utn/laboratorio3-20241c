@@ -43,7 +43,7 @@ GO
 
 CREATE TRIGGER VerificarUsuario
 ON Fotografias
-AFTER INSERT
+INSTEAD OF INSERT
 AS
 BEGIN
 
